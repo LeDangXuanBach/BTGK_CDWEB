@@ -114,9 +114,24 @@ public class ForumService {
 	public Topic findTopic(Integer id) {
 		return topics.get(id);
 	}
+	
+	public User findUser(String username) {
+		return users.get(username);
+	}
 
 	public static ForumService getInstance() {
 		return instance;
 	}
 	
+	public void addMessage(Integer idTopic, Message message) {
+		topics.get(idTopic).addMessage(message);
+	}
+	
+	public void addTopic(Topic topic) {
+		topics.put(topic.getId(), topic);
+	}
+	
+	public Integer getNextTopicID() {
+		return topics.size()+1;
+	}
 }

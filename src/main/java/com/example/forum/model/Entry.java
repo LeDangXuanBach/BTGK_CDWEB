@@ -1,13 +1,14 @@
 package com.example.forum.model;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public abstract class Entry {
-	private String title;
-	private String content;
-	private Calendar createdTime;
-	private User creator;
+	protected String title;
+	protected String content;
+	protected Calendar createdTime;
+	protected User creator;
 
 	public Entry(String title, String content, User creator) {
 		this.title = title;
@@ -46,5 +47,10 @@ public abstract class Entry {
 
 	public void setCreator(User creator) {
 		this.creator = creator;
+	}
+	
+	public String getTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy h:mm a");
+        return dateFormat.format(this.createdTime.getTime());
 	}
 }

@@ -37,7 +37,10 @@
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid #000000;
+    cursor: pointer;
+    background: #f0f0f0;
 }
+
 
 
 .user {
@@ -54,9 +57,15 @@
 }
 
 .title {
+    margin: 30px 25px;
+}
+.title > div {
     font-weight: 900;
     font-size: 46px;
-    margin: 30px 25px;
+}
+.title > p {
+    margin: 0px;
+    font-size: 18px;
 }
 
 .btn-page {
@@ -66,7 +75,7 @@
 table {
     margin: 20px 0px;
     font-size: 26px;
-    width: 100%;
+    width: 1200px;
     border-collapse: collapse;
 }
 
@@ -74,6 +83,7 @@ table th, td {
     padding: 15px 10px;
     border: 2px solid #7c7c7c;
 }
+
 th {
     background-color: #c5c5c5;
 }
@@ -82,3 +92,79 @@ th:nth-child(2), td:nth-child(2) {
     width: 10%;
     text-align: center;
 }
+
+
+
+.topic-contains {
+    font-size: 20px;
+    border-bottom: 3px solid #d4d4d4;
+    border-right: 3px solid #d4d4d4;
+    margin-bottom: 25px;
+}
+.create-time {
+    background-color: #b1b1b1;
+}
+.topic {
+    display: flex;
+}
+.author-info {
+    background-color: #c5ffe9;
+    text-align: center;
+    display: flex;
+}
+.author-info > div {
+    margin: auto;
+    text-wrap: nowrap;
+    padding: 0px 10px;
+}
+.topic-title {
+    display: flex;
+    justify-content: space-between;
+    background-color: #bbfaff;
+}
+.topic-title > div {
+    font-weight: 800;
+}
+.topic-title > a {
+    margin-right: 30px;
+}
+.topic-content p {
+    margin: 0px;
+}
+.topics {
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+}
+
+.topic-list {
+    font-size: 20px;
+    text-align: right;
+}
+.create-topic-form input {
+    font-size: 25px;
+    width: 100%;
+}
+
+#topic-content {
+    height: 500px;
+    width: 1200px;
+    overflow-y: auto;
+    resize: none;
+    font-size: 20px;
+}
+
+.btn-contains {
+    display: flex;
+    margin-left: 25px;
+}
+
+.btn-contains > button {
+	margin-right: 10px;
+}
+
+.none-style {
+	text-decoration: none;
+	color: black;
+}
+

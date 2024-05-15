@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowTopic</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+  <body>
+    <div class="container">
+      <div class="contains">
+        <div class="user" th:if="${session.user}">
+        	<div>Chao <span th:text="${session.user.username}"></span></div>
+            <span></span>
+            <a href="/logout">Thoat</a>
+        </div>
+        <div class="title">
+          <div th:text="${topic.title}"></div>
+          <p th:text="'Bài mới nhất gửi ' + ${topic.getNewMessage().getTime()} + ', do ' + ${topic.creator.username} + ', hồi âm ' + ${#lists.size(topic.messages)}"></p>
+        </div>
+        <div class="content">
+          <div class="topics">
+            <div class="topic-contains">
+              <div class="create-time" th:text="${topic.getTime()}"></div>
+              <div class="topic">
+                <div class="author-info">
+                  <div>
+                    <div th:text="${topic.creator.username}"></div>
+                    <div th:text="'Tham gia ' + ${topic.creator.getTime()}"></div>
+                  </div>
+                </div>
+                <div style="width: 100%">
+                  <div class="topic-title">
+                    <div th:text="${topic.title}"></div>
+                    <a th:href="@{/replyTopic?id={id}&&title={title}(id=${topic.id}, title=${topic.title})}">Trả lời</a>
+                  </div>
+                  <div class="topic-content">
+                    <p th:text="${topic.content}">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="topic-contains" th:each="mess : ${topic.messages}">
+                <div class="create-time" th:text="${mess.getTime()}"></div>
+                <div class="topic">
+                  <div class="author-info">
+                    <div>
+                      <div th:text="${mess.creator.username}"></div>
+                      <div th:text="'Tham gia ' + ${mess.creator.getTime()}"></div>
+                    </div>
+                  </div>
+                  <div style="width: 100%">
+                    <div class="topic-title">
+                      <div th:text="${mess.title}"></div>
+                      <a th:href="@{/replyTopic?id={id}&&title={title}(id=${topic.id}, title=${mess.title})}">Trả lời</a>
+                    </div>
+                    <div class="topic-content">
+                      <p th:text="${mess.content}">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <div class="topic-list">
+                <a href="/listTopics">Danh sách chủ đề</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 package com.example.forum.model;
 
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -37,7 +36,14 @@ public class Topic extends Entry {
 		messages.push(message);
 	}
 
-	public Message getNewMessage() {
+	public Entry getNewMessage() {
+		if(messages.isEmpty()) return this;
 		return messages.peek();
 	}	
+	
+	public String getNewMessInfo() {
+		Message m = messages.peek();
+		return "Bài viết mới nhất by "+m.getCreator().getUsername()+", "+m.getTime();
+	}
+	
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ListTopics</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css" />
 </head>
 <body>
     <div class="container">
@@ -14,39 +14,29 @@
                 <span></span>
                 <a href="/logout">Thoat</a>
             </div>
-            <div class="title">Diễn đàn: Chuuyện học phí và chính sách hỗ trợ học tập</div>
+            <div class="title">
+            	<div>Diễn đàn: Chuuyện học phí và chính sách hỗ trợ học tập</div>
+            </div>
             <div class="content">
-                <button class="btn btn-page" th:if="${session.user != null}">Gửi bài mới</button>
+                <a href="/newTopic" class="btn btn-page" th:if="${session.user != null}" style="text-decoration: none">Gửi bài mới</a>
                 <table>
                     <tr>
                         <th>Chủ đề</th>
                         <th>Hồi âm</th>
                     </tr>
                     
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
+                  	<tr th:each="topic : ${topics}">
+                  		<td>
+                  			<a th:href="@{/showTopic?id={id}(id=${topic.id})}" th:text="${topic.title}"></a>
+                  			<div style="font-size: 16px; margin-top: 5px">
+                  				Bài viết mới nhất by
+                  				<a th:text="${topic.getNewMessage().creator.username}+ ', ' + ${topic.getNewMessage().getTime()}"></a>
+                  			</div>
+                  			
+                  		</td>
+                        <td th:text="${#lists.size(topic.messages)}"></td>
                     </tr>
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
-                    </tr>
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
-                    </tr>
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
-                    </tr>
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
-                    </tr>
-                    <tr>
-                        <td>chủ đề chủ đề</td>
-                        <td>hồi âm</td>
-                    </tr>
+                   
                 </table>
             </div>
 

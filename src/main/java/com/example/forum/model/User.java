@@ -1,6 +1,7 @@
 package com.example.forum.model;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
@@ -50,5 +51,9 @@ public class User {
 		this.joinDate = joinDate;
 	}
 	
+	public String getTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        return dateFormat.format(this.joinDate.getTime());
+	}
 	
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplyTopic</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+  <body>
+    <div class="container">
+      <div class="contains">
+        <div class="user" th:if="${session.user}">
+        	<div>Chao <span th:text="${session.user.username}"></span></div>
+            <span></span>
+            <a href="/logout">Thoat</a>
+        </div>
+        <div class="content">
+            <form class="create-topic-form" method="post" action="/replyTopic">
+                <div class="title">
+                    <div>Tiêu đề</div>
+                    <input id="topic-title" name="title" type="text" th:value="'Re: ' + ${title}">
+                </div>
+                <div class="title">
+                    <div>Nội dung</div>
+                    <textarea id="topic-content" name="content"></textarea>
+                </div>
+                <input type="text" th:value="${id}" name="idTopic" style="display: none">
+                <div class="btn-contains">
+                    <button class="btn btn-page">Gửi</button>
+                    <a href="/listTopics" class="btn btn-page none-style">Hủy bỏ</a>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
