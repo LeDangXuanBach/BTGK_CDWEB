@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="contains">
+            <div class="login-title">Đăng nhập</div>
+            <div class="content">
+                <form action="/login"  method="post" class="login-form">
+                    <div class="form-item">
+                        <label for="username">Tên Đăng nhập</label>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div class="form-item">
+                        <label for="password">Mật khẩu</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div class="form-item">
+                        <label></label>
+                        <button type="submit" class="btn btn-login">Đăng nhập</button>
+                    </div>
+                </form>
+            </div>
+			<div style="height:35px">
+				<p id="error-message" th:if="${error}" th:text="${error}" style="color:red; margin:0px"></p>
+			</div>
+        </div>
+    </div>
+    
+    <script>
+	    document.addEventListener('DOMContentLoaded', function () {
+	        document.addEventListener('click', function (event) {
+	            var errorElement = document.getElementById('error-message');
+	            if (errorElement) {
+	                errorElement.style.display = 'none'; // Hide error message
+	            }
+	        });
+	    });
+	</script>
+</body>
+</html>
+

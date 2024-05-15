@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListTopics</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="contains">
+            <div class="user" th:if="${session.user}">
+                <div>Chao <span th:text="${session.user.username}"></span></div>
+                <span></span>
+                <a href="/logout">Thoat</a>
+            </div>
+            <div class="title">Diễn đàn: Chuuyện học phí và chính sách hỗ trợ học tập</div>
+            <div class="content">
+                <button class="btn btn-page" th:if="${session.user != null}">Gửi bài mới</button>
+                <table>
+                    <tr>
+                        <th>Chủ đề</th>
+                        <th>Hồi âm</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                    <tr>
+                        <td>chủ đề chủ đề</td>
+                        <td>hồi âm</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

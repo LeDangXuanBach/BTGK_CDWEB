@@ -1,0 +1,84 @@
+.container {
+    width: 100%;
+    display: flex;
+}
+.contains {
+    margin: auto;
+    border: 1px solid #000000;
+}
+
+.login-title {
+    background-color: aqua;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content {
+    padding: 20px
+}
+.login-form {
+    margin: 0px 100px;
+}
+
+.form-item {
+    margin: 10px 0px;
+    display: flex;
+}
+
+.form-item > label {
+    margin-right: 10px;
+    width: 100px;
+    text-align: right;
+}
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+
+
+.user {
+    display: flex;
+    padding: 5px;
+    display: flex;
+    justify-content: right;
+    font-size: 26px;
+    margin: 10px;
+}
+.user > span {
+    margin: 0px 7px;
+    border: 1px solid #838383;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 46px;
+    margin: 30px 25px;
+}
+
+.btn-page {
+    font-size: 26px;
+}
+
+table {
+    margin: 20px 0px;
+    font-size: 26px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, td {
+    padding: 15px 10px;
+    border: 2px solid #7c7c7c;
+}
+th {
+    background-color: #c5c5c5;
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 10%;
+    text-align: center;
+}
