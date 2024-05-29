@@ -2,6 +2,7 @@ package com.example.forum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +19,10 @@ public class NewTopicController {
 	@Autowired
 	private ForumService forumService;
 	@GetMapping("/newTopic")
-	public String showNewTopic() {
-		return "newTopic";
+	public String showNewTopic(HttpSession session, Model model) {
+		if(session.getAttribute("user") != null) return "newTopic";
+		model.addAttribute("errorMess", "Bạn cần đăng nhập để tạo chủ đề mới");
+		return "error";
 	}
 	
 	@PostMapping("/newTopic")

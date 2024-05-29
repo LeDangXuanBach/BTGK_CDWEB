@@ -21,10 +21,14 @@ public class ReplyTopicController {
 	private ForumService forumService;
 	
 	@GetMapping("/replyTopic")
-	public String showReplyTopic(@RequestParam("id") Integer id, @RequestParam("title") String title, Model model) {
-		model.addAttribute("title", title);
-		model.addAttribute("id", id);
-		return "replyTopic";
+	public String showReplyTopic(@RequestParam("id") Integer id, @RequestParam("title") String title, Model model, HttpSession session) {
+		if(session.getAttribute("user") != null) {
+			model.addAttribute("title", title);
+			model.addAttribute("id", id);
+			return "replyTopic";
+		}
+		model.addAttribute("errorMess", "Bạn cần đăng nhập để trả lời chủ đề");
+		return "error";
 	}
 	
 	@PostMapping("/replyTopic")

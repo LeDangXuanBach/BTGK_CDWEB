@@ -26,27 +26,6 @@ public class LoginController {
     public String logIn() {
         return "login";
     }
-
-//    @PostMapping("/login")
-//    public String login(@RequestBody Map<String, String> loginForm, 
-//                        RedirectAttributes redirectAttributes, Model model) {
-//        String username = loginForm.get("username");
-//        String password = loginForm.get("password");
-//
-//        if (username == null || password == null || username.isEmpty() || password.isEmpty()) {
-//            model.addAttribute("error", "Tên đăng nhập và mật khẩu không được để trống");
-//            return "login";
-//        }
-//
-//        User user = forumService.checkUser(username, password);
-//        if (user != null) {
-//            redirectAttributes.addFlashAttribute("user", user);
-//            return "redirect:/listTopics";
-//        } else {
-//            model.addAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng");
-//            return "login";
-//        }
-//    }
     
     @PostMapping("/login")
     public String login(@RequestParam("username") String username, @RequestParam("password") String password, HttpSession session, Model model) {

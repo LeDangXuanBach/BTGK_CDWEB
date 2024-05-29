@@ -2,9 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Hello</title>
+    <title>Error</title>
 </head>
 <body>
-    <h1 th:text="'Hello, ' + ${name} + '!'"></h1>
+    <h1 style="color:red">Error !!!</h1>
+    <h3 th:text="${errorMess}" style="color:red"></h3>
 </body>
 </html>

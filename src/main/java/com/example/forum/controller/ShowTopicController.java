@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.forum.model.Message;
 import com.example.forum.model.Topic;
 import com.example.forum.service.ForumService;
 
